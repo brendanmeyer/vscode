@@ -317,7 +317,7 @@ export function pathEquals(a: string, b: string): boolean {
  */
 export function relativePath(from: string, to: string): string {
 	if (isDescendant(from, to) && from.length < to.length) {
-		return to.substring(from.length + 1);
+		return to.substring(from.length).replace(/^[\/]*/, '');
 	}
 
 	// Fallback to `path.relative`
